@@ -1,9 +1,9 @@
-package com.yupi.backend.esdao;
+package com.tree.backend.esdao;
 
-import com.yupi.backend.model.dto.post.PostEsDTO;
-import com.yupi.backend.model.dto.post.PostQueryRequest;
-import com.yupi.backend.model.entity.Post;
-import com.yupi.backend.service.PostService;
+import com.tree.backend.model.dto.post.PostEsDTO;
+import com.tree.backend.model.dto.post.PostQueryRequest;
+import com.tree.backend.model.entity.Post;
+import com.tree.backend.service.PostService;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -18,8 +18,8 @@ import org.springframework.data.domain.Sort;
 /**
  * 帖子 ES 操作测试
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @SpringBootTest
 public class PostEsDaoTest {

@@ -1,4 +1,4 @@
-package com.yupi.backend.config;
+package com.tree.backend.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 /**
  * MyBatis Plus 配置
  *
- * @author https://github.com/liyupi
+ * @author https://github.com/litree
  */
 @Configuration
-@MapperScan("com.yupi.backend.mapper")
+@MapperScan("com.tree.backend.mapper")
 public class MyBatisPlusConfig {
 
     /**

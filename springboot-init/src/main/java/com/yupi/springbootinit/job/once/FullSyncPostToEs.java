@@ -1,9 +1,9 @@
-package com.yupi.backend.job.once;
+package com.tree.backend.job.once;
 
-import com.yupi.backend.esdao.PostEsDao;
-import com.yupi.backend.model.dto.post.PostEsDTO;
-import com.yupi.backend.model.entity.Post;
-import com.yupi.backend.service.PostService;
+import com.tree.backend.esdao.PostEsDao;
+import com.tree.backend.model.dto.post.PostEsDTO;
+import com.tree.backend.model.entity.Post;
+import com.tree.backend.service.PostService;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.Resource;
@@ -14,8 +14,8 @@ import org.springframework.boot.CommandLineRunner;
 /**
  * 全量同步帖子到 es
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 // todo 取消注释开启任务
 //@Component

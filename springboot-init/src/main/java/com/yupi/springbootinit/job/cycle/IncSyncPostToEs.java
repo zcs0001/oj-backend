@@ -1,9 +1,9 @@
-package com.yupi.backend.job.cycle;
+package com.tree.backend.job.cycle;
 
-import com.yupi.backend.esdao.PostEsDao;
-import com.yupi.backend.mapper.PostMapper;
-import com.yupi.backend.model.dto.post.PostEsDTO;
-import com.yupi.backend.model.entity.Post;
+import com.tree.backend.esdao.PostEsDao;
+import com.tree.backend.mapper.PostMapper;
+import com.tree.backend.model.dto.post.PostEsDTO;
+import com.tree.backend.model.entity.Post;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,8 +15,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 /**
  * 增量同步帖子到 es
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 // todo 取消注释开启任务
 //@Component

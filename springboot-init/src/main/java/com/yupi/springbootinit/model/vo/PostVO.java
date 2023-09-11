@@ -1,8 +1,8 @@
-package com.yupi.backend.model.vo;
+package com.tree.backend.model.vo;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.yupi.backend.model.entity.Post;
+import com.tree.backend.model.entity.Post;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -12,8 +12,8 @@ import org.springframework.beans.BeanUtils;
 /**
  * 帖子视图
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @Data
 public class PostVO implements Serializable {

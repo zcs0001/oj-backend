@@ -1,4 +1,4 @@
-package com.yupi.backend.model.entity;
+package com.tree.backend.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -12,8 +12,8 @@ import lombok.Data;
 /**
  * 用户
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @TableName(value = "user")
 @Data

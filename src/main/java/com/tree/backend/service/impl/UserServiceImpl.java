@@ -1,6 +1,6 @@
 package com.tree.backend.service.impl;
 
-import static com.yupi.backend.constant.UserConstant.USER_LOGIN_STATE;
+import static com.tree.backend.constant.UserConstant.USER_LOGIN_STATE;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
@@ -10,12 +10,12 @@ import com.tree.backend.mapper.UserMapper;
 import com.tree.backend.model.dto.user.UserQueryRequest;
 import com.tree.backend.model.entity.User;
 import com.tree.backend.service.UserService;
-import com.yupi.backend.constant.CommonConstant;
+import com.tree.backend.constant.CommonConstant;
 import com.tree.backend.exception.BusinessException;
-import com.yupi.backend.model.enums.UserRoleEnum;
-import com.yupi.backend.model.vo.LoginUserVO;
-import com.yupi.backend.model.vo.UserVO;
-import com.yupi.backend.utils.SqlUtils;
+import com.tree.backend.model.enums.UserRoleEnum;
+import com.tree.backend.model.vo.LoginUserVO;
+import com.tree.backend.model.vo.UserVO;
+import com.tree.backend.utils.SqlUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,8 +30,8 @@ import org.springframework.util.DigestUtils;
 /**
  * 用户服务实现
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @Service
 @Slf4j
@@ -40,7 +40,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     /**
      * 盐值，混淆密码
      */
-    private static final String SALT = "yupi";
+    private static final String SALT = "tree";
 
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {

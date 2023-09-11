@@ -1,11 +1,11 @@
-package com.yupi.backend.service;
+package com.tree.backend.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yupi.backend.model.dto.user.UserQueryRequest;
-import com.yupi.backend.model.entity.User;
-import com.yupi.backend.model.vo.LoginUserVO;
-import com.yupi.backend.model.vo.UserVO;
+import com.tree.backend.model.dto.user.UserQueryRequest;
+import com.tree.backend.model.entity.User;
+import com.tree.backend.model.vo.LoginUserVO;
+import com.tree.backend.model.vo.UserVO;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
@@ -13,8 +13,8 @@ import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 /**
  * 用户服务
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 public interface UserService extends IService<User> {
 

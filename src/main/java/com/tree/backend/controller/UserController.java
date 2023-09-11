@@ -8,18 +8,18 @@ import com.tree.backend.common.ResultUtils;
 import com.tree.backend.config.WxOpenConfig;
 import com.tree.backend.service.UserService;
 import com.tree.backend.annotation.AuthCheck;
-import com.yupi.backend.constant.UserConstant;
+import com.tree.backend.constant.UserConstant;
 import com.tree.backend.exception.BusinessException;
 import com.tree.backend.exception.ThrowUtils;
 import com.tree.backend.model.dto.user.UserAddRequest;
 import com.tree.backend.model.dto.user.UserLoginRequest;
 import com.tree.backend.model.dto.user.UserQueryRequest;
 import com.tree.backend.model.dto.user.UserRegisterRequest;
-import com.yupi.backend.model.dto.user.UserUpdateMyRequest;
+import com.tree.backend.model.dto.user.UserUpdateMyRequest;
 import com.tree.backend.model.dto.user.UserUpdateRequest;
 import com.tree.backend.model.entity.User;
-import com.yupi.backend.model.vo.LoginUserVO;
-import com.yupi.backend.model.vo.UserVO;
+import com.tree.backend.model.vo.LoginUserVO;
+import com.tree.backend.model.vo.UserVO;
 
 import java.util.List;
 import javax.annotation.Resource;
@@ -41,8 +41,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 用户接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/user")

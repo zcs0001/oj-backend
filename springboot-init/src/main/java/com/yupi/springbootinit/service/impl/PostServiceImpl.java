@@ -1,27 +1,27 @@
-package com.yupi.backend.service.impl;
+package com.tree.backend.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.gson.Gson;
-import com.yupi.backend.common.ErrorCode;
-import com.yupi.backend.constant.CommonConstant;
-import com.yupi.backend.exception.BusinessException;
-import com.yupi.backend.exception.ThrowUtils;
-import com.yupi.backend.mapper.PostFavourMapper;
-import com.yupi.backend.mapper.PostMapper;
-import com.yupi.backend.mapper.PostThumbMapper;
-import com.yupi.backend.model.dto.post.PostEsDTO;
-import com.yupi.backend.model.dto.post.PostQueryRequest;
-import com.yupi.backend.model.entity.Post;
-import com.yupi.backend.model.entity.PostFavour;
-import com.yupi.backend.model.entity.PostThumb;
-import com.yupi.backend.model.entity.User;
-import com.yupi.backend.model.vo.PostVO;
-import com.yupi.backend.model.vo.UserVO;
-import com.yupi.backend.service.PostService;
-import com.yupi.backend.service.UserService;
-import com.yupi.backend.utils.SqlUtils;
+import com.tree.backend.common.ErrorCode;
+import com.tree.backend.constant.CommonConstant;
+import com.tree.backend.exception.BusinessException;
+import com.tree.backend.exception.ThrowUtils;
+import com.tree.backend.mapper.PostFavourMapper;
+import com.tree.backend.mapper.PostMapper;
+import com.tree.backend.mapper.PostThumbMapper;
+import com.tree.backend.model.dto.post.PostEsDTO;
+import com.tree.backend.model.dto.post.PostQueryRequest;
+import com.tree.backend.model.entity.Post;
+import com.tree.backend.model.entity.PostFavour;
+import com.tree.backend.model.entity.PostThumb;
+import com.tree.backend.model.entity.User;
+import com.tree.backend.model.vo.PostVO;
+import com.tree.backend.model.vo.UserVO;
+import com.tree.backend.service.PostService;
+import com.tree.backend.service.UserService;
+import com.tree.backend.utils.SqlUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,8 +50,8 @@ import org.springframework.stereotype.Service;
 /**
  * 帖子服务实现
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @Service
 @Slf4j

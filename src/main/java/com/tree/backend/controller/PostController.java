@@ -13,10 +13,10 @@ import com.tree.backend.model.vo.PostVO;
 import com.tree.backend.service.PostService;
 import com.tree.backend.service.UserService;
 import com.tree.backend.annotation.AuthCheck;
-import com.yupi.backend.constant.UserConstant;
+import com.tree.backend.constant.UserConstant;
 import com.tree.backend.exception.BusinessException;
 import com.tree.backend.exception.ThrowUtils;
-import com.yupi.backend.model.dto.post.PostEditRequest;
+import com.tree.backend.model.dto.post.PostEditRequest;
 import com.tree.backend.model.entity.Post;
 import com.tree.backend.model.entity.User;
 
@@ -34,8 +34,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 帖子接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/post")

@@ -1,4 +1,4 @@
-package com.yupi.backend.wxmp.handler;
+package com.tree.backend.wxmp.handler;
 
 import java.util.Map;
 import me.chanjar.weixin.common.error.WxErrorException;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 /**
  * 消息处理器
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  **/
 @Component
 public class MessageHandler implements WxMpMessageHandler {

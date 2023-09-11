@@ -1,13 +1,13 @@
-package com.yupi.backend.controller;
+package com.tree.backend.controller;
 
-import com.yupi.backend.common.BaseResponse;
-import com.yupi.backend.common.ErrorCode;
-import com.yupi.backend.common.ResultUtils;
-import com.yupi.backend.exception.BusinessException;
-import com.yupi.backend.model.dto.postthumb.PostThumbAddRequest;
-import com.yupi.backend.model.entity.User;
-import com.yupi.backend.service.PostThumbService;
-import com.yupi.backend.service.UserService;
+import com.tree.backend.common.BaseResponse;
+import com.tree.backend.common.ErrorCode;
+import com.tree.backend.common.ResultUtils;
+import com.tree.backend.exception.BusinessException;
+import com.tree.backend.model.dto.postthumb.PostThumbAddRequest;
+import com.tree.backend.model.entity.User;
+import com.tree.backend.service.PostThumbService;
+import com.tree.backend.service.UserService;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 帖子点赞接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/post_thumb")

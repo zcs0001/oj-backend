@@ -1,8 +1,8 @@
-package com.yupi.backend.wxmp;
+package com.tree.backend.wxmp;
 
-import com.yupi.backend.wxmp.handler.EventHandler;
-import com.yupi.backend.wxmp.handler.MessageHandler;
-import com.yupi.backend.wxmp.handler.SubscribeHandler;
+import com.tree.backend.wxmp.handler.EventHandler;
+import com.tree.backend.wxmp.handler.MessageHandler;
+import com.tree.backend.wxmp.handler.SubscribeHandler;
 import javax.annotation.Resource;
 import me.chanjar.weixin.common.api.WxConsts.EventType;
 import me.chanjar.weixin.common.api.WxConsts.XmlMsgType;
@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 微信公众号路由
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @Configuration
 public class WxMpMsgRouter {

@@ -1,16 +1,16 @@
-package com.yupi.backend.controller;
+package com.tree.backend.controller;
 
 import cn.hutool.core.io.FileUtil;
-import com.yupi.backend.common.BaseResponse;
-import com.yupi.backend.common.ErrorCode;
-import com.yupi.backend.common.ResultUtils;
-import com.yupi.backend.constant.FileConstant;
-import com.yupi.backend.exception.BusinessException;
-import com.yupi.backend.manager.CosManager;
-import com.yupi.backend.model.dto.file.UploadFileRequest;
-import com.yupi.backend.model.entity.User;
-import com.yupi.backend.model.enums.FileUploadBizEnum;
-import com.yupi.backend.service.UserService;
+import com.tree.backend.common.BaseResponse;
+import com.tree.backend.common.ErrorCode;
+import com.tree.backend.common.ResultUtils;
+import com.tree.backend.constant.FileConstant;
+import com.tree.backend.exception.BusinessException;
+import com.tree.backend.manager.CosManager;
+import com.tree.backend.model.dto.file.UploadFileRequest;
+import com.tree.backend.model.entity.User;
+import com.tree.backend.model.enums.FileUploadBizEnum;
+import com.tree.backend.service.UserService;
 import java.io.File;
 import java.util.Arrays;
 import javax.annotation.Resource;
@@ -26,8 +26,8 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 文件接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @RestController
 @RequestMapping("/file")

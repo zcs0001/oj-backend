@@ -3,8 +3,8 @@ package com.tree.backend.wxmp;
 /**
  * 微信公众号相关常量
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/litree">程序员鱼皮</a>
+ * @from <a href="https://tree.icu">编程导航知识星球</a>
  **/
 public class WxMpConstant {
 
