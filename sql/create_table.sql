@@ -1,12 +1,8 @@
-# 数据库初始化
-# @author <a href="https://github.com/litree">程序员鱼皮</a>
-# @from <a href="https://tree.icu">编程导航知识星球</a>
-
 -- 创建库
-create database if not exists my_db;
+create database if not exists oj;
 
 -- 切换库
-use my_db;
+use oj;
 
 -- 用户表
 create table if not exists user
