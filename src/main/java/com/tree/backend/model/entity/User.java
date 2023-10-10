@@ -75,7 +75,7 @@ public class User implements Serializable {
     /**
      * 状态:0-正常/1-注销/2-封号
      */
-    private String userState;
+    private String userStatus;
 
     /**
      * 用户角色：user/admin/ban

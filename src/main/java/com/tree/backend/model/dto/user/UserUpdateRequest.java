@@ -56,7 +56,7 @@ public class UserUpdateRequest implements Serializable {
     /**
      * 状态:正常/注销/封号
      */
-    private String userState;
+    private String userStatus;
 
     /**
      * 用户角色：user/admin/ban
