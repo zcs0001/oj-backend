@@ -19,21 +19,21 @@ public class User implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 用户账号
+     * 账号
      */
     private String userAccount;
 
     /**
-     * 用户密码
+     * 密码
      */
     private String userPassword;
 
     /**
-     * 开放平台id
+     * 微信开放平台id
      */
     private String unionId;
 
@@ -58,6 +58,26 @@ public class User implements Serializable {
     private String userProfile;
 
     /**
+     * 性别 男 女
+     */
+    private String gender;
+
+    /**
+     * 电话
+     */
+    private String phone;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
+     * 状态:0-正常/1-注销/2-封号
+     */
+    private String userState;
+
+    /**
      * 用户角色：user/admin/ban
      */
     private String userRole;
@@ -75,7 +95,6 @@ public class User implements Serializable {
     /**
      * 是否删除
      */
-    @TableLogic
     private Integer isDelete;
 
     @TableField(exist = false)

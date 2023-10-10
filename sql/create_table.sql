@@ -15,12 +15,16 @@ create table if not exists user
     userName     varchar(256)                           null comment '用户昵称',
     userAvatar   varchar(1024)                          null comment '用户头像',
     userProfile  varchar(512)                           null comment '用户简介',
+    gender       varchar(256)                           null comment '性别 男 女',
+    phone        varchar(128)                           null comment '电话',
+    email        varchar(512)                           null comment '邮箱',
+    userState    varchar(256) default '正常'              not null comment '状态:0-正常/1-注销/2-封号',
     userRole     varchar(256) default 'user'            not null comment '用户角色：user/admin/ban',
     createTime   datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
     updateTime   datetime     default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
     isDelete     tinyint      default 0                 not null comment '是否删除',
-    index idx_unionId (unionId)
-) comment '用户' collate = utf8mb4_unicode_ci;
+    index idx_unionId (userAccount)
+) comment '用户表' collate = utf8mb4_unicode_ci;
 
 -- 用户编号表
 create table if not exists user_code
@@ -69,7 +73,7 @@ create table if not exists question_submit
     judgeInfo      text                               null comment '判题信息（json 对象）',
     submitLanguage varchar(128)                       not null comment '编程语言',
     submitCode     text                               not null comment '用户提交代码',
-    submitStatus    int      default 0                 not null comment '判题状态（0 - 待判题、1 - 判题中、2 - 成功、3 - 失败）',
+    submitStatus   int      default 0                 not null comment '判题状态（0 - 待判题、1 - 判题中、2 - 成功、3 - 失败）',
     createTime     datetime default CURRENT_TIMESTAMP not null comment '创建时间',
     updateTime     datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
     isDelete       tinyint  default 0                 not null comment '是否删除',
