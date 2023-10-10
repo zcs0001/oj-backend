@@ -11,9 +11,6 @@ import lombok.Data;
 
 /**
  * 用户
- *
- * @author <a href="https://github.com/litree">程序员鱼皮</a>
- * @from <a href="https://tree.icu">编程导航知识星球</a>
  */
 @TableName(value = "user")
 @Data
