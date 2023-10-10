@@ -15,6 +15,10 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * 请求响应日志 AOP
+ * 这个拦截器主要用于记录每个请求的开始和结束，以及请求的执行时间。
+ * @Aspect: 这是一个AspectJ切面，用于定义切面。
+ * @Component: 将该类声明为Spring的一个组件，由Spring进行管理。
+ * @Slf4j: 使用Lombok注解，自动生成Slf4j日志。
  **/
 @Aspect
 @Component
@@ -23,6 +27,14 @@ public class LogInterceptor {
 
     /**
      * 执行拦截
+     * @Around: 这是一个环绕通知，表示在目标方法执行前后都会执行。
+     *
+     * StopWatch: 用于计时，记录方法执行时间。
+     * RequestContextHolder: Spring提供的用于获取当前请求上下文的工具类。
+     * 生成唯一请求ID（UUID）和获取请求路径。
+     * 记录请求参数和请求日志。
+     * 执行目标方法（即被拦截的Controller方法）。
+     * 记录响应日志，包括请求ID和方法执行时间。
      */
     @Around("execution(* com.tree.backend.controller.*.*(..))")
     public Object doInterceptor(ProceedingJoinPoint point) throws Throwable {
