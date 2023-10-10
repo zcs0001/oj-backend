@@ -9,6 +9,10 @@ import lombok.Data;
  * 泛型类： BaseResponse 是一个泛型类，可以在创建对象时指定具体的类型
  * 例如 BaseResponse<String> 或 BaseResponse<Integer>。
  * Serializable 接口：表示该类的对象可以被序列化，可以在网络上传输或保存到文件中。
+ *
+ * 泛型的好处：
+ * 统一了数据类型
+ * 把运行时期的问题提前到了编译期间，避免了强制类型转换可能出现的异常，因为在编译期间就能确定下来
  */
 @Data
 public class BaseResponse<T> implements Serializable {
