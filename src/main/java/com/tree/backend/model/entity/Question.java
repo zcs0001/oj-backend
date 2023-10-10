@@ -18,7 +18,8 @@ public class Question implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
+//    为了防止用户按照id顺序爬取题目，改为ASSIGN_ID，非连续自增
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**

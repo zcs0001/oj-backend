@@ -11,7 +11,7 @@
             <result property="judgeInfo" column="judgeInfo" jdbcType="VARCHAR"/>
             <result property="submitLanguage" column="submitLanguage" jdbcType="VARCHAR"/>
             <result property="submitCode" column="submitCode" jdbcType="VARCHAR"/>
-            <result property="submitState" column="submitState" jdbcType="INTEGER"/>
+            <result property="submitStatus" column="submitStatus" jdbcType="INTEGER"/>
             <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
             <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
             <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
@@ -20,7 +20,7 @@
     <sql id="Base_Column_List">
         id,questionId,userId,
         judgeInfo,submitLanguage,submitCode,
-        submitState,createTime,updateTime,
+        submitStatus,createTime,updateTime,
         isDelete
     </sql>
 </mapper>

@@ -47,7 +47,7 @@ public class QuestionSubmitVO implements Serializable {
     /**
      * 判题状态（0 - 待判题、1 - 判题中、2 - 成功、3 - 失败）
      */
-    private Integer submitState;
+    private Integer submitStatus;
 
     /**
      * 创建时间
