@@ -5,7 +5,7 @@ package com.tree.backend.common;
  * 枚举类型默认是线程安全的，因为在加载枚举类型时，其实例被创建，且只创建一次，因此它天生就是单例的。
  */
 public enum ErrorCode {
-
+//  要定义的常量必须写在最前面
     SUCCESS(0, "ok"),
     PARAMS_ERROR(40000, "请求参数错误"),
     NOT_LOGIN_ERROR(40100, "未登录"),
@@ -15,6 +15,8 @@ public enum ErrorCode {
     SYSTEM_ERROR(50000, "系统内部异常"),
     OPERATION_ERROR(50001, "操作失败");
 
+//  常量后面再写这个类的属性、构造方法、get方法；
+//  因为枚举是常量不可更改，因此不需要set方法
     /**
      * 状态码
      */

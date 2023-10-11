@@ -20,6 +20,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * @Aspect: 声明这是一个切面类。
+ * 在Spring AOP中，@Around 注解用于定义环绕通知（Around Advice），而 @Aspect 注解用于标识一个类为切面类。
+ * 切面类（Aspect）是一个包含 切点 和 通知 的类，而通知可以是前置通知（@Before）、后置通知（@After）、环绕通知（@Around）等。
+ * @Around 注解用于定义环绕通知，它能够在目标方法执行前后都进行处理，包括决定是否继续执行目标方法。
+ *
+ *
  * @Component: 将该类标记为 Spring 的组件，使其能够被自动扫描并纳入 Spring 容器管
  * 这个拦截器主要用于在方法执行前进行权限校验，确保调用该方法的用户具备指定的权限。
  * 这是通过在 AOP 切面中使用 @Around 注解实现的，拦截了带有 @AuthCheck 注解的方法，并在执行前进行了权限检查。

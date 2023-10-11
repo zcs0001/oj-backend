@@ -6,6 +6,7 @@ import lombok.Data;
 /**
  * 通用返回类
  * BaseResponse类负责定义通用返回结构，而ResultUtils类负责提供创建返回对象的工具方法。
+ *
  * 泛型类： BaseResponse 是一个泛型类，可以在创建对象时指定具体的类型
  * 例如 BaseResponse<String> 或 BaseResponse<Integer>。
  * Serializable 接口：表示该类的对象可以被序列化，可以在网络上传输或保存到文件中。
