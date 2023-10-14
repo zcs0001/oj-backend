@@ -60,6 +60,7 @@ public class UserController {
         String userAccount = userRegisterRequest.getUserAccount();
         String userPassword = userRegisterRequest.getUserPassword();
         String checkPassword = userRegisterRequest.getCheckPassword();
+        //检查用户账号、密码和确认密码是否有任何一个是空白的（null或空字符串）。如果是，则返回null。
         if (StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)) {
             return null;
         }
@@ -73,6 +74,17 @@ public class UserController {
      * @param userLoginRequest
      * @param request
      * @return
+     *
+     * 在注册接口中不需要HttpServletRequest，而在登录接口中，需要HttpServletRequest参数的原因有几个：
+     *
+     * 获取用户登录时的请求信息：
+     * 在登录时，可能需要获取用户的 IP 地址、User-Agent 等信息，用于记录登录日志或者进行其他安全性相关的操作。
+     *
+     * 处理登录时的特定操作：
+     * 登录时可能需要处理一些特殊的操作，例如设置登录状态、记录登录时间等。这些操作可能需要访问HTTP请求对象的一些信息
+     *
+     * 从请求中获取其他信息：
+     * 登录时可能需要从请求中获取其他信息，例如验证码、第三方登录的令牌等。
      */
     @PostMapping("/login")
     public BaseResponse<LoginUserVO> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
@@ -135,6 +147,7 @@ public class UserController {
         User user = new User();
         BeanUtils.copyProperties(userAddRequest, user);
         boolean result = userService.save(user);
+        // 如果保存失败，抛出 BusinessException 异常，错误码为 OPERATION_ERROR，被全局异常处理器GlobalExceptionHandler捕获并处理
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
         return ResultUtils.success(user.getId());
     }
@@ -222,8 +235,8 @@ public class UserController {
             HttpServletRequest request) {
         long current = userQueryRequest.getCurrent();
         long size = userQueryRequest.getPageSize();
-        Page<User> userPage = userService.page(new Page<>(current, size),
-                userService.getQueryWrapper(userQueryRequest));
+        // 调用服务层的 page 方法，传递 Page 对象（表示分页信息）和查询条件，以获取分页后的用户列表。
+        Page<User> userPage = userService.page(new Page<>(current, size),userService.getQueryWrapper(userQueryRequest));
         return ResultUtils.success(userPage);
     }
 

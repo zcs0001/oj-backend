@@ -55,6 +55,30 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         if (!userPassword.equals(checkPassword)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "两次输入的密码不一致");
         }
+        /**
+         * synchronized 用于在多线程环境中确保代码块或方法在同一时刻只能被一个线程执行。
+         * 当一个线程进入被 synchronized 修饰的代码块时，其他试图进入该代码块的线程将被阻塞，直到持有锁的线程执行完毕并释放锁。
+         * 使用Java 中的对象锁来确保代码块在同一时刻只能被一个线程执行的机制。
+         *
+         * 使用字符串对象的intern()方法来获取字符串的常量池对象，并以这个对象为锁.
+         * 字符串常量池（String Pool）：
+         *    在Java中，字符串常量池是一个特殊的内存区域，用于存储字符串字面量，即编写在代码中的字符串。
+         *    当通过 String 类的 intern() 方法调用时，它会检查字符串常量池：
+         *      如果常量池中已经存在该字符串，intern() 方法返回常量池中的引用。
+         *      如果常量池中不存在该字符串，它将字符串添加到常量池，并返回对新字符串的引用。
+         * 这意味着，无论是从字符串常量池中获取已存在的字符串引用，还是将新的字符串加入常量池并返回引用，
+         * 最终 intern() 方法都会返回一个指向常量池中字符串的引用。
+         *
+         * String str1 = "hello";
+         * String str2 = new String("hello");
+         * String str1Interned = str1.intern();  // 返回常量池中 "hello" 的引用
+         * String str2Interned = str2.intern();  // 返回常量池中 "hello" 的引用
+         *
+         * str1 和 str1Interned 引用的是同一个字符串对象
+         * str2 和 str2Interned 引用的也是同一个字符串对象
+         * 这种机制有助于节省内存，因为相同的字符串在常量池中只会存储一份。
+         * 当需要使用相同的字符串时，可以通过 intern() 方法获取常量池中的引用，以便实现字符串的共享。
+         */
         synchronized (userAccount.intern()) {
             // 账户不能重复
             QueryWrapper<User> queryWrapper = new QueryWrapper<>();
@@ -101,7 +125,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             log.info("user login failed, userAccount cannot match userPassword");
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户不存在或密码错误");
         }
-        // 3. 记录用户的登录态
+        // 3. 记录用户的登录态，保存在session中
         request.getSession().setAttribute(USER_LOGIN_STATE, user);
         return this.getLoginUserVO(user);
     }
@@ -112,12 +136,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      *
      * @param request
      * @return
+     *
+     * 用户登录时，使用request.getSession().setAttribute(USER_LOGIN_STATE, user);
+     * 以USER_LOGIN_STATE为键，user对象为值
+     * 使用getAttribute通过USER_LOGIN_STATE键取值，得到user对象
      */
     @Override
     public User getLoginUser(HttpServletRequest request) {
         // 先判断是否已登录
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User) userObj;
+        // 保获取到的用户对象和该用户对象的ID不为空
         if (currentUser == null || currentUser.getId() == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }

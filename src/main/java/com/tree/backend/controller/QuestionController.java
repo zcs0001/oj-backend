@@ -7,8 +7,12 @@ import com.tree.backend.common.DeleteRequest;
 import com.tree.backend.common.ErrorCode;
 import com.tree.backend.common.ResultUtils;
 import com.tree.backend.model.dto.question.*;
+import com.tree.backend.model.dto.questionsumbit.QuestionSubmitQueryRequest;
+import com.tree.backend.model.entity.QuestionSubmit;
+import com.tree.backend.model.vo.QuestionSubmitVO;
 import com.tree.backend.model.vo.QuestionVO;
 import com.tree.backend.service.QuestionService;
+import com.tree.backend.service.QuestionSubmitService;
 import com.tree.backend.service.UserService;
 import com.tree.backend.annotation.AuthCheck;
 import com.tree.backend.constant.UserConstant;
@@ -38,6 +42,9 @@ public class QuestionController {
     private QuestionService questionService;
 
     @Resource
+    private QuestionSubmitService questionSubmitService;
+
+    @Resource
     private UserService userService;
 
     private final static Gson GSON = new Gson();
@@ -57,6 +64,7 @@ public class QuestionController {
         }
         Question question = new Question();
         BeanUtils.copyProperties(questionAddRequest, question);
+        // 转换成Json格式
         List<String> tags = questionAddRequest.getTags();
         if (tags != null) {
             question.setTags(GSON.toJson(tags));
@@ -141,8 +149,34 @@ public class QuestionController {
         return ResultUtils.success(result);
     }
 
+
     /**
      * 根据 id 获取
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/get")
+    @ApiOperation(value = "获取题目信息")
+    public BaseResponse<Question> getQuestionById(long id, HttpServletRequest request) {
+        if (id <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        Question question = questionService.getById(id);
+        if (question == null) {
+            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
+        }
+        // 用户权限判断
+        User loginUser = userService.getLoginUser(request);
+        // 非本人或者管理员，不能获取到题目所有信息
+        if (!question.getUserId().equals(loginUser.getId()) && userService.isAdmin(loginUser)) {
+            throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "无权限");
+        }
+        return ResultUtils.success(question);
+    }
+
+    /**
+     * 根据 id 获取（脱敏）
      *
      * @param id
      * @return
