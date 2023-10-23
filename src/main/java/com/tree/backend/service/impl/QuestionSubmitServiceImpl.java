@@ -7,6 +7,7 @@ import com.tree.backend.common.ErrorCode;
 import com.tree.backend.constant.CommonConstant;
 import com.tree.backend.exception.BusinessException;
 import com.tree.backend.exception.ThrowUtils;
+import com.tree.backend.judge.JudgeService;
 import com.tree.backend.model.dto.questionsumbit.QuestionSubmitAddRequest;
 import com.tree.backend.model.dto.questionsumbit.QuestionSubmitQueryRequest;
 import com.tree.backend.model.entity.Question;
@@ -22,10 +23,12 @@ import com.tree.backend.service.UserService;
 import com.tree.backend.utils.SqlUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 /**
@@ -42,6 +45,9 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
     @Resource
     private QuestionService questionService;
 
+    @Resource
+    @Lazy
+    private JudgeService judgeService;
 //    @Resource
 //    private CodeMqProducer codeMqProducer;
 
@@ -95,17 +101,22 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         boolean save = this.save(questionSubmit);
 //        ThrowUtils.throwIf(!save, ErrorCode.SYSTEM_ERROR, "数据保存失败");
 //
-//        Long questionSubmitId = questionSubmit.getId();
+        Long questionSubmitId = questionSubmit.getId();
 //        // 生产者发送消息
 //        codeMqProducer.sendMessage(CODE_EXCHANGE_NAME, CODE_ROUTING_KEY, String.valueOf(questionSubmitId));
 //        // 执行判题服务
-//        // CompletableFuture.runAsync(() -> {
-//        //     judgeService.doJudge(questionSubmitId);
-//        // });
+//         CompletableFuture.runAsync(() -> {
+//             System.out.println("Executing doJudge");
+//             judgeService.doJudge(questionSubmitId);
+//             System.out.println("doJudge completed");
+//         });
+        System.out.println("Executing doJudge");
+        judgeService.doJudge(questionSubmitId);
+        System.out.println("doJudge completed");
         if (!save){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"数据插入失败");
         }
-        return questionSubmit.getId();
+        return questionSubmitId;
     }
 
     /**

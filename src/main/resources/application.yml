@@ -80,6 +80,8 @@ wx:
   open:
     appId: xxx
     appSecret: xxx
+codesandbox:
+  type: example
 # 对象存储
 # todo 需替换配置
 cos:
