@@ -5,7 +5,7 @@ import com.tree.backend.judge.codesandbox.model.ExecuteCodeResponse;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 使用代理模式，提供一个Proxy，来增强代码沙箱的能力
+ * 使用代理模式，提供一个Proxy，用来增强代码沙箱的能力
  */
 @Slf4j
 public class CodeSandBoxProxy implements CodeSandbox{
