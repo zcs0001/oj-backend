@@ -104,15 +104,15 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         Long questionSubmitId = questionSubmit.getId();
 //        // 生产者发送消息
 //        codeMqProducer.sendMessage(CODE_EXCHANGE_NAME, CODE_ROUTING_KEY, String.valueOf(questionSubmitId));
-//        // 执行判题服务
-//         CompletableFuture.runAsync(() -> {
-//             System.out.println("Executing doJudge");
-//             judgeService.doJudge(questionSubmitId);
-//             System.out.println("doJudge completed");
-//         });
-        System.out.println("Executing doJudge");
-        judgeService.doJudge(questionSubmitId);
-        System.out.println("doJudge completed");
+        // 执行判题服务
+         CompletableFuture.runAsync(() -> {
+             System.out.println("Executing doJudge");
+             judgeService.doJudge(questionSubmitId);
+             System.out.println("doJudge completed");
+         });
+//        System.out.println("Executing doJudge");
+//        judgeService.doJudge(questionSubmitId);
+//        System.out.println("doJudge completed");
         if (!save){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"数据插入失败");
         }

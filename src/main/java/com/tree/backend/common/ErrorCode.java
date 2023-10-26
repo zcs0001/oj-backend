@@ -13,7 +13,9 @@ public enum ErrorCode {
     NOT_FOUND_ERROR(40400, "请求数据不存在"),
     FORBIDDEN_ERROR(40300, "禁止访问"),
     SYSTEM_ERROR(50000, "系统内部异常"),
-    OPERATION_ERROR(50001, "操作失败");
+    OPERATION_ERROR(50001, "操作失败"),
+    API_REQUEST_ERROR(50010, "接口调用错误");
+
 
 //  常量后面再写这个类的属性、构造方法、get方法；
 //  因为枚举是常量不可更改，因此不需要set方法
