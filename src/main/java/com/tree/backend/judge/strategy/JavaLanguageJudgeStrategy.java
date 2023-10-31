@@ -22,14 +22,19 @@ public class JavaLanguageJudgeStrategy implements JudgeStrategy{
      */
     @Override
     public JudgeInfo doJudge(JudgeContext judgeContext) {
+
         JudgeInfo judgeInfo = judgeContext.getJudgeInfo();
+        //安全地获取执行内存值和时间值，避免了可能的 NullPointerException。如果执行内存值为 null，则使用默认值 0L。
         Long executedMemory = Optional.ofNullable(judgeInfo.getMemory()).orElse(0L);
         Long executedTime = Optional.ofNullable(judgeInfo.getTime()).orElse(0L);
+
         List<String> inputList = judgeContext.getInputList();
         List<String> outputList = judgeContext.getOutputList();
+
         Question question = judgeContext.getQuestion();
         List<JudgeCase> judgeCaseList = judgeContext.getJudgeCaseList();
         JudgeInfoMessageEnum judgeInfoMessageEnum = JudgeInfoMessageEnum.ACCEPTED;
+
         JudgeInfo judgeInfoResponse = new JudgeInfo();
         judgeInfoResponse.setMemory(executedMemory);
         judgeInfoResponse.setTime(executedTime);

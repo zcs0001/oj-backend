@@ -70,7 +70,7 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "编程语言错误");
         }
 
-        // 判断实体是否存在，根据类别获取实体
+        // 判断问题是否存在，根据ID获取问题
         Question question = questionService.getById(questionId);
         if (question == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
@@ -100,19 +100,27 @@ public class QuestionSubmitServiceImpl extends ServiceImpl<QuestionSubmitMapper,
         questionSubmit.setJudgeInfo("{}");
         boolean save = this.save(questionSubmit);
 //        ThrowUtils.throwIf(!save, ErrorCode.SYSTEM_ERROR, "数据保存失败");
-//
+
         Long questionSubmitId = questionSubmit.getId();
 //        // 生产者发送消息
 //        codeMqProducer.sendMessage(CODE_EXCHANGE_NAME, CODE_ROUTING_KEY, String.valueOf(questionSubmitId));
-        // 执行判题服务
+        // 执行判题服务\
+        /**
+         * 在保存之后，按理讲应该先判断是否保存成功，也就是用户对于该题是否已经提交过代码
+         * 而这里使用CompletableFuture.runAsync实现异步操作，在一个新线程中执行判题操作，120行的判断操作也不影响执行
+         * 如果判题时间较长，在判题没有结束之前，此方法也会得到返回结果，返回具有上述设置初始信息的题目提交信息questionSubmitId，返回的结果在前端显示为
+         * JudgeInfo：{null,null,null},SubmitStatus=QuestionSubmitStatusEnum.WAITING,也就是判题中
+         * 优势：
+         * 判题服务是异步执行的，不会阻塞主线程，提高了系统的并发性和响应性。
+         * 判题服务的执行与判断是否提交过题目的逻辑并发执行，可以提高系统的效率。
+         * 劣势：
+         * 如果判题服务执行失败，可能会导致用户已经提交的记录没有被判定，需要额外的处理来处理这种异常情况。已在doJudge中通过抛出异常实现
+         */
          CompletableFuture.runAsync(() -> {
              System.out.println("Executing doJudge");
              judgeService.doJudge(questionSubmitId);
              System.out.println("doJudge completed");
          });
-//        System.out.println("Executing doJudge");
-//        judgeService.doJudge(questionSubmitId);
-//        System.out.println("doJudge completed");
         if (!save){
             throw new BusinessException(ErrorCode.SYSTEM_ERROR,"数据插入失败");
         }

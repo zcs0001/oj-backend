@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 /**
  * 题目提交编程语言枚举
  *
- * @author Shier
  */
 public enum QuestionSubmitLanguageEnum {
 

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * 判题管理（简化调用）
- * @author Shier
  */
 @Service
 public class JudgeManager {

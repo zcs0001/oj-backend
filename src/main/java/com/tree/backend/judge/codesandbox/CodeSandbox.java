@@ -9,5 +9,4 @@ import com.tree.backend.judge.codesandbox.model.ExecuteCodeResponse;
 public interface CodeSandbox {
 
     ExecuteCodeResponse executeCode(ExecuteCodeRequest executeCodeRequest);
-
 }

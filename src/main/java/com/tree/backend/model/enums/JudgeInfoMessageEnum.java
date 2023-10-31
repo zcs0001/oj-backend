@@ -8,8 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * 判题信息消息枚举
- *
- * @author Shier
  */
 public enum JudgeInfoMessageEnum {
 
