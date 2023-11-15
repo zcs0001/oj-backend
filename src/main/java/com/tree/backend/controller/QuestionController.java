@@ -303,7 +303,7 @@ public class QuestionController {
      * @param request
      * @return 提交记录 id
      */
-    @PostMapping("/question_sumbit/do")
+    @PostMapping("/question_submit/do")
     public BaseResponse<Long> doQuestionSubmit(@RequestBody QuestionSubmitAddRequest questionSubmitAddRequest,
                                                HttpServletRequest request) {
         if (questionSubmitAddRequest == null || questionSubmitAddRequest.getQuestionId() <= 0) {
